@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Coiny&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="./javascript.js" defer></script>
+		<title>Memory Game</title>
+	</head>
+	<body>
+		<header>
+			<div class="logo-div">
+				<img src="./assets/logo-puzzle.png" class="logo-img" />
+				<p class="game-name">Memory Game</p>
+			</div>
+			<button id="new-game" class="button">New Game</button>
+		</header>
+
+		<main>
+			<section id="section-match">
+				<p class="memory-match">Memory Match</p>
+				<div class="match-results">
+					<div class="divs-match">
+						<p>Moves</p>
+						<p id="moves">6</p>
+					</div>
+					<div class="divs-match">
+						<p>Time</p>
+						<p id="moves">0:52</p>
+					</div>
+					<div class="divs-match">
+						<p>Matches</p>
+						<p id="moves">0/8</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="board">
+				<div class="card" id="card1">
+					<!-- <img src="#" class="board-img" /> -->
+					<div class="icon-hover"></div>
+				</div>
+				<div class="card" id="card2">
+					<!-- <img src="./assets/black-puzzle.png" class="black-puzzle-img" /> -->
+					<div class="icon-hover"></div>
+				</div>
+				<div class="card" id="card3">
+					<!-- <img src="./assets/black-puzzle.png" class="black-puzzle-img" /> -->
+					<div class="icon-hover"></div>
+				</div>
+				<div class="card" id="card4">
+					<!-- <img src="./assets/black-puzzle.png" class="black-puzzle-img" /> -->
+					<div class="icon-hover"></div>
+				</div>
+				<div class="card" id="card5">
+					<!-- <img src="./assets/black-puzzle.png" class="black-puzzle-img" /> -->
+					<div class="icon-hover"></div>
+				</div>
+				<div class="card" id="card6">
+					<!-- <img src="./assets/black-puzzle.png" class="black-puzzle-img" /> -->
+					<div class="icon-hover"></div>
+				</div>
+				<div class="card" id="card7">
+					<!-- <img src="./assets/black-puzzle.png" class="black-puzzle-img" /> -->
+					<div class="icon-hover"></div>
+				</div>
+				<div class="card" id="card8">
+					<!-- <img src="./assets/black-puzzle.png" class="black-puzzle-img" /> -->
+					<div class="icon-hover"></div>
+				</div>
+				<div class="card" id="card9">
+					<!-- <img src="./assets/black-puzzle.png" class="black-puzzle-img" /> -->
+					<div class="icon-hover"></div>
+				</div>
+				<div class="card" id="card10">
+					<!-- <img src="./assets/black-puzzle.png" class="black-puzzle-img" /> -->
+					<div class="icon-hover"></div>
+				</div>
+			</section>
+
+			<section id="win-section" class="win-section win-section-show">
+				<p>You Win!</p>
+				<p id="win-moves">Moves: 2</p>
+				<p id="win-time">Time: 3:23</p>
+				<button class="button" id="play-again">Play Again</button>
+			</section>
+		</main>
+		<footer><p>© Oleksandra / 2025</p></footer>
+	</body>
+</html>
