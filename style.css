@@ -182,33 +182,43 @@ main {
 }
 
 .card {
+	border: 2px solid var(--bright-brown);
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 12rem;
 	height: 12rem;
-	border: 2px solid var(--dark-brown);
 	background-color: #fffcfb;
 	border-radius: var(--border-radius);
 	cursor: pointer;
 }
 
-.icon-hover {
-	width: 3.5rem;
-	height: 3.5rem;
-
-	background-image: url("./assets/black-puzzle.png");
+.emoji-bg {
+	width: 12rem;
+	height: 12rem;
+	background-color: #fffcfb;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+}
 
-	opacity: 0.7;
-	transition: background-image 0.25s ease, opacity 0.25s ease;
+.icon-hover {
+	width: 3.7rem;
+	height: 3.7rem;
+
+	background-image: url("./assets/black-puzzle.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.8));
+
+	opacity: 0.9;
+	transition: background-image 0.1s ease, opacity 0.1s ease;
 }
 
 .icon-hover:hover {
 	background-image: url("./assets/logo-puzzle.png");
-	filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.8));
 
 	opacity: 1;
 }
@@ -233,20 +243,41 @@ main {
 	height: 100%;
 	background: rgba(0, 0, 0, 0.329);
 
-	color: var(--button-text-white);
+	color: var(--text-color);
 	font-size: var(--font-size-medium);
-	text-shadow: var(--box-shadow);
 }
 /* .win-section-show {
 	display: flex;
 } */
 
+.win-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	justify-content: center;
+
+	background-color: #d9e5d6;
+	padding: 1.5rem 2.5rem;
+	border-radius: var(--border-radius);
+	border: 2px solid var(--bright-brown);
+}
+
+.you-win {
+	font-weight: bold;
+	font-size: 2rem;
+}
+
 #play-again {
 	margin: 0;
+	margin-top: 10px;
 }
 /* --------------------FOOTER--------------------*/
 
 footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -254,4 +285,7 @@ footer {
 	height: 2rem;
 	background-color: var(--extra-light-mint);
 	color: var(--text-color);
+
+	bottom: 0;
+	left: 0;
 }

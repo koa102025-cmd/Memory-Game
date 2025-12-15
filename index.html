@@ -13,6 +13,7 @@
 		<title>Memory Game</title>
 	</head>
 	<body>
+		<div></div>
 		<header>
 			<div class="logo-div">
 				<img src="./assets/logo-puzzle.png" class="logo-img" />
@@ -20,7 +21,6 @@
 			</div>
 			<button id="new-game" class="button">New Game</button>
 		</header>
-
 		<main>
 			<section id="section-match">
 				<p class="memory-match">Memory Match</p>
@@ -42,7 +42,6 @@
 
 			<section id="board">
 				<div class="card" id="card1">
-					<!-- <img src="#" class="board-img" /> -->
 					<div class="icon-hover"></div>
 				</div>
 				<div class="card" id="card2">
@@ -84,10 +83,12 @@
 			</section>
 
 			<section id="win-section" class="win-section win-section-show">
-				<p>You Win!</p>
-				<p id="win-moves">Moves: 2</p>
-				<p id="win-time">Time: 3:23</p>
-				<button class="button" id="play-again">Play Again</button>
+				<div class="win-content">
+					<p class="you-win">You Win!</p>
+					<p id="win-moves">Moves:</p>
+					<p id="win-time">Time:</p>
+					<button class="button" id="play-again">Play Again</button>
+				</div>
 			</section>
 		</main>
 		<footer><p>© Oleksandra / 2025</p></footer>
