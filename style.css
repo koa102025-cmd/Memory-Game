@@ -79,11 +79,14 @@ header {
 .button {
 	background-color: var(--bright-brown);
 	color: var(--button-text-white);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	border: 1px solid rgba(0, 0, 0, 0.12);
 	border-radius: 12px;
 
-	padding: 0.45em 1.2em;
+	padding: 0.45em 1em;
 	font-size: var(--font-size-medium);
 
 	margin-right: 9rem;
@@ -94,6 +97,13 @@ header {
 	cursor: pointer;
 	transition: background-color 0.25s ease, box-shadow 0.25s ease,
 		transform 0.2s ease;
+}
+
+.button .icon {
+	width: 2rem;
+	height: 2rem;
+	stroke: var(--button-text-white);
+	margin-right: 0.3rem;
 }
 
 /* hover */
@@ -201,6 +211,10 @@ main {
 	cursor: pointer;
 }
 
+.card:active {
+	transform: rotateY(180deg);
+}
+
 .emoji-bg {
 	width: 12rem;
 	height: 12rem;
@@ -248,7 +262,7 @@ main {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.329);
+	background: rgba(0, 0, 0, 0.529);
 
 	color: var(--button-text-white);
 	font-size: var(--font-size-medium);
