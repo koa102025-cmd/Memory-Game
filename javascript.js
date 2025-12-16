@@ -65,6 +65,14 @@ function flipCard(card) {
 	if (lock) return;
 	if (card === firstCard) return;
 
+	if (!timerStarted) {
+		timerStarted = true;
+		timerInterval = setInterval(updateTimer, 1000);
+	}
+	move++;
+	moves.textContent = move;
+	winMoves.textContent = `Moves: ${move}`;
+
 	const emojiDiv = card.querySelector(".card-back");
 	emojiDiv.style.backgroundImage = `url(./assets/${card.dataset.emoji})`;
 
@@ -88,6 +96,12 @@ function checkMatch() {
 	if (isMatch) {
 		match++;
 		matches.textContent = `${match}/5`;
+		if (match === 5) {
+			winSection.classList.add("win-section-show");
+			resetTimer();
+		}
+
+		// fCard = 0; sCard = 0; lock = 0
 		resetTurn();
 	} else {
 		setTimeout(() => {

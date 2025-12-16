@@ -26,7 +26,7 @@
 }
 
 html {
-	font-size: 15px;
+	font-size: 14px;
 }
 
 body {
@@ -333,6 +333,7 @@ main {
 	margin-top: 10px;
 	background-color: var(--button-text-white);
 	color: var(--text-color);
+	font-weight: 600;
 }
 
 .play-again:hover {
