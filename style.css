@@ -13,7 +13,6 @@
 
 	--light-yellow: #eddea4;
 	--warm-yellow: #f7a072;
-	--orange: #f7a072;
 
 	--border-radius: 10px;
 	--button-padding: 10px 15px;
@@ -251,12 +250,12 @@ main {
 	height: 100%;
 	background: rgba(0, 0, 0, 0.329);
 
-	color: var(--text-color);
+	color: var(--button-text-white);
 	font-size: var(--font-size-medium);
 }
-/* .win-section-show {
+.win-section-show {
 	display: flex;
-} */
+}
 
 .win-content {
 	display: flex;
@@ -265,20 +264,29 @@ main {
 	gap: 10px;
 	justify-content: center;
 
-	background-color: #d9e5d6;
+	background-color: var(--bright-brown);
 	padding: 1.5rem 2.5rem;
 	border-radius: var(--border-radius);
-	border: 2px solid var(--bright-brown);
+	border: 2px solid var(--button-text-white);
+	opacity: 0.98;
 }
 
 .you-win {
 	font-weight: bold;
 	font-size: 2rem;
+	color: #ffe066;
+	text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
-#play-again {
+.play-again {
 	margin: 0;
 	margin-top: 10px;
+	background-color: var(--button-text-white);
+	color: var(--text-color);
+}
+
+.play-again:hover {
+	background-color: #ffffff;
 }
 /* --------------------FOOTER--------------------*/
 
