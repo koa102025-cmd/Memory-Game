@@ -11,11 +11,13 @@ const emojies = [
 	"emojies/think.png",
 ];
 
-let firstCard = 0;
-let secondCard = 0;
+let firstCard = null;
+let secondCard = null;
 let lock = false;
 
 const cards = document.querySelectorAll(".card");
+let isFlipped = false;
+
 const newGameBtn = document.getElementById("new-game");
 
 //for section-match (Memory match box)
@@ -60,26 +62,23 @@ cards.forEach((card) => {
 
 //changing backround image style of the card
 function flipCard(card) {
-	if (!timerStarted) {
-		timerStarted = true;
-		timerInterval = setInterval(updateTimer, 1000);
-	}
-
-	if (firstCard === card) return;
 	if (lock) return;
-	move++;
-	moves.textContent = move;
-	winMoves.textContent = `Moves: ${move}`;
+	if (card === firstCard) return;
 
-	const emojiDiv = card.querySelector(".icon-hover");
-
+	const emojiDiv = card.querySelector(".card-back");
 	emojiDiv.style.backgroundImage = `url(./assets/${card.dataset.emoji})`;
+
+	const inner = card.querySelector(".card-inner");
+	inner.classList.add("flipped");
+
 	if (!firstCard) {
 		firstCard = card;
 		return;
 	}
+
 	secondCard = card;
 	lock = true;
+
 	checkMatch();
 }
 
@@ -89,21 +88,19 @@ function checkMatch() {
 	if (isMatch) {
 		match++;
 		matches.textContent = `${match}/5`;
-		if (match === 5) {
-			winSection.classList.add("win-section-show");
-			resetTimer();
-		}
-
-		// fCard = 0; sCard = 0; lock = 0
 		resetTurn();
 	} else {
 		setTimeout(() => {
+			firstCard.querySelector(".card-inner").classList.remove("flipped");
+			secondCard.querySelector(".card-inner").classList.remove("flipped");
+
 			firstCard.querySelector(
-				".icon-hover"
+				".card-back"
 			).style.backgroundImage = `url(./assets/black-puzzle.png)`;
 			secondCard.querySelector(
-				".icon-hover"
+				".card-back"
 			).style.backgroundImage = `url(./assets/black-puzzle.png)`;
+
 			resetTurn();
 		}, 800);
 	}
@@ -131,8 +128,8 @@ function resetTimer() {
 }
 
 function resetTurn() {
-	firstCard = 0;
-	secondCard = 0;
+	firstCard = null;
+	secondCard = null;
 	lock = false;
 }
 
@@ -152,9 +149,9 @@ function updateCards() {
 	moves.textContent = move;
 
 	cards.forEach((card) => {
-		const emojiDiv = card.querySelector(".icon-hover");
-
+		const emojiDiv = card.querySelector(".card-back");
 		emojiDiv.style.backgroundImage = `url(./assets/black-puzzle.png)`;
+		card.querySelector(".card-inner").classList.remove("flipped");
 	});
 	setupCards(emojies);
 }
@@ -162,3 +159,5 @@ function updateCards() {
 function youWinContent() {
 	winSection.classList.remove("win-section-show");
 }
+
+const card = document.getElementById("myCard");
