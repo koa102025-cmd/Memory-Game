@@ -24,12 +24,29 @@ let cards = [];
 
 document.addEventListener("DOMContentLoaded", () => {
 	const board = document.getElementById("board");
-	const totalCards = 12;
+	const totalCards = 10;
+
+	const divisors = [5, 4, 3];
+	let minUnevenIndex = totalCards + 1;
+
+	divisors.forEach((divisor) => {
+		const remainder = totalCards % divisor;
+		if (remainder !== 0) {
+			const startUnevenIndex = totalCards - remainder + 1;
+			if (startUnevenIndex < minUnevenIndex) {
+				minUnevenIndex = startUnevenIndex;
+			}
+		}
+	});
 
 	for (let i = 1; i <= totalCards; i++) {
 		const card = document.createElement("div");
 		card.classList.add("card");
 		card.id = `card${i}`;
+
+		if (i >= minUnevenIndex) {
+			card.classList.add(`uneven-card${i}`);
+		}
 
 		const cardInner = document.createElement("div");
 		cardInner.classList.add("card-inner");

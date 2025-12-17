@@ -17,6 +17,9 @@
 	--border-radius: 10px;
 	--button-padding: 10px 15px;
 	--box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+
+	--grid-template-columns: 12rem;
+	--grid-template-columns-uneven: 15rem;
 }
 
 * {
@@ -187,7 +190,10 @@ main {
 
 #board {
 	display: grid;
-	grid-template-columns: repeat(5, 12rem);
+	grid-template-columns:
+		var(--grid-template-columns) var(--grid-template-columns)
+		var(--grid-template-columns) var(--grid-template-columns) var(--grid-template-columns);
+	grid-template-rows: auto auto;
 	gap: 15px;
 	margin-bottom: 3rem;
 }
@@ -203,10 +209,9 @@ main {
 	background-color: #fffcfb;
 	border-radius: var(--border-radius);
 	cursor: pointer;
-	position: relative; /* для внутреннего блока */
+	position: relative;
 }
 
-/* Внутренняя часть карточки, которая переворачивается */
 .card-inner {
 	position: relative;
 	width: 100%;
@@ -218,12 +223,10 @@ main {
 	align-items: center;
 }
 
-/* Класс для переворота */
 .flipped {
 	transform: rotateY(180deg);
 }
 
-/* Передняя и задняя стороны */
 .card-front,
 .card-back {
 	position: absolute;
@@ -236,7 +239,6 @@ main {
 	border-radius: var(--border-radius);
 }
 
-/* Передняя сторона (иконка) */
 .card-front .icon-hover {
 	width: 3.7rem;
 	height: 3.7rem;
@@ -249,7 +251,6 @@ main {
 	transition: background-image 0.2s ease, opacity 0.2s ease;
 }
 
-/* Задняя сторона (можно другая картинка или цвет) */
 .card-back {
 	transform: rotateY(180deg);
 }
@@ -369,15 +370,24 @@ footer {
 	}
 
 	#board {
-		grid-template-columns: repeat(4, 12rem);
+		grid-template-columns:
+			var(--grid-template-columns) var(--grid-template-columns)
+			var(--grid-template-columns) var(--grid-template-columns);
 	}
 
-	.button {
+	#new-game {
 		margin-right: 3rem;
 	}
 
 	#section-match {
 		width: 51rem;
+	}
+
+	.uneven-card9,
+	.uneven-card10 {
+		display: block;
+		width: 25rem;
+		grid-column: span 2;
 	}
 }
 
@@ -394,12 +404,17 @@ footer {
 		grid-template-columns: repeat(3, 12rem);
 	}
 
-	.button {
+	#new-game {
 		margin-right: 3rem;
 	}
 
 	#section-match {
 		width: 39rem;
+	}
+
+	.uneven-card10 {
+		display: block;
+		width: 38.5rem;
 	}
 }
 
@@ -416,11 +431,16 @@ footer {
 		grid-template-columns: repeat(3, 12rem);
 	}
 
-	.button {
+	#new-game {
 		margin-right: 3rem;
 	}
 
 	#section-match {
+		width: 39rem;
+	}
+
+	.uneven-card10 {
+		display: block;
 		width: 39rem;
 	}
 }
@@ -441,6 +461,11 @@ footer {
 	#section-match {
 		width: 40rem;
 	}
+
+	.uneven-card10 {
+		display: block;
+		width: 40rem;
+	}
 }
 
 @media screen and (max-width: 355px) {
@@ -457,6 +482,11 @@ footer {
 	}
 
 	#section-match {
+		width: 40rem;
+	}
+
+	.uneven-card10 {
+		display: block;
 		width: 40rem;
 	}
 }
