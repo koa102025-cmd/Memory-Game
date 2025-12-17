@@ -35,12 +35,6 @@ body {
 	color: var(--text-color);
 }
 
-@media only screen and (min-width: 1820px) and (max-width: 2010px) {
-	html {
-		font-size: 20px;
-	}
-}
-
 /* --------------------HEADER--------------------*/
 
 header {
@@ -63,8 +57,8 @@ header {
 }
 
 .logo-img {
-	height: 65px;
-	width: 65px;
+	height: 3rem;
+	width: 3rem;
 	object-fit: cover;
 	filter: drop-shadow(1px 1px 1.5px rgba(0, 0, 0, 0.4));
 }
@@ -137,7 +131,7 @@ main {
 	align-items: center;
 
 	height: 10rem;
-	width: 62rem;
+	width: 63rem;
 
 	background-color: #fffcfb;
 	border: 2px solid var(--bright-brown);
@@ -170,7 +164,7 @@ main {
 	font-size: 1.3rem;
 	font-weight: 500;
 
-	margin-top: 20px;
+	margin-top: 1rem;
 	margin-right: 15px;
 	margin-bottom: 20px;
 
@@ -355,4 +349,114 @@ footer {
 
 	bottom: 0;
 	left: 0;
+}
+
+/* --------------------MEDIA--------------------*/
+
+@media only screen and (min-width: 1820px) {
+	html {
+		font-size: 20px;
+	}
+}
+
+@media screen and (max-width: 1000px) and (min-width: 750px) {
+	html {
+		font-size: 14px;
+	}
+
+	.game-name {
+		font-size: 2.5rem;
+	}
+
+	#board {
+		grid-template-columns: repeat(4, 12rem);
+	}
+
+	.button {
+		margin-right: 3rem;
+	}
+
+	#section-match {
+		width: 51rem;
+	}
+}
+
+@media screen and (max-width: 750px) and (min-width: 550px) {
+	html {
+		font-size: 12px;
+	}
+
+	.game-name {
+		font-size: 2.5rem;
+	}
+
+	#board {
+		grid-template-columns: repeat(3, 12rem);
+	}
+
+	.button {
+		margin-right: 3rem;
+	}
+
+	#section-match {
+		width: 39rem;
+	}
+}
+
+@media screen and (max-width: 550px) and (min-width: 420px) {
+	html {
+		font-size: 9.5px;
+	}
+
+	.game-name {
+		font-size: 2.5rem;
+	}
+
+	#board {
+		grid-template-columns: repeat(3, 12rem);
+	}
+
+	.button {
+		margin-right: 3rem;
+	}
+
+	#section-match {
+		width: 39rem;
+	}
+}
+
+@media screen and (max-width: 420px) and (min-width: 355px) {
+	html {
+		font-size: 7.5px;
+	}
+
+	#board {
+		grid-template-columns: repeat(3, 12rem);
+	}
+
+	.button {
+		margin-right: 3rem;
+	}
+
+	#section-match {
+		width: 40rem;
+	}
+}
+
+@media screen and (max-width: 355px) {
+	html {
+		font-size: 6px;
+	}
+
+	#board {
+		grid-template-columns: repeat(3, 12rem);
+	}
+
+	.button {
+		margin-right: 3rem;
+	}
+
+	#section-match {
+		width: 40rem;
+	}
 }
