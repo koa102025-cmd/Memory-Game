@@ -9,14 +9,58 @@ const emojies = [
 	"emojies/regn.png",
 	"emojies/tea.png",
 	"emojies/think.png",
+	"emojies/flower.png",
+	"emojies/pigeon.png",
+	"emojies/fire.png",
+	"emojies/snow.png",
+	"emojies/bouquet.png",
+	"emojies/pink-hearts.png",
+	"emojies/frustrated.png",
+	"emojies/clown.png",
+	"emojies/croissant.png",
 ];
+
+let cards = [];
+
+document.addEventListener("DOMContentLoaded", () => {
+	const board = document.getElementById("board");
+	const totalCards = 12;
+
+	for (let i = 1; i <= totalCards; i++) {
+		const card = document.createElement("div");
+		card.classList.add("card");
+		card.id = `card${i}`;
+
+		const cardInner = document.createElement("div");
+		cardInner.classList.add("card-inner");
+
+		const cardFront = document.createElement("div");
+		cardFront.classList.add("card-front");
+
+		const frontIcon = document.createElement("div");
+		frontIcon.classList.add("icon-hover");
+
+		const cardBack = document.createElement("div");
+		cardBack.classList.add("card-back", "icon-hover");
+
+		cardFront.appendChild(frontIcon);
+		cardInner.append(cardFront, cardBack);
+		card.appendChild(cardInner);
+		board.appendChild(card);
+	}
+
+	cards = document.querySelectorAll(".card");
+
+	setupCards(emojies);
+
+	cards.forEach((card) => {
+		card.addEventListener("click", () => flipCard(card));
+	});
+});
 
 let firstCard = null;
 let secondCard = null;
 let lock = false;
-
-const cards = document.querySelectorAll(".card");
-let isFlipped = false;
 
 const newGameBtn = document.getElementById("new-game");
 
@@ -55,10 +99,6 @@ function setupCards(emojies) {
 		card.dataset.emoji = cardEmojies[index];
 	});
 }
-setupCards(emojies);
-cards.forEach((card) => {
-	card.addEventListener("click", () => flipCard(card));
-});
 
 //changing backround image style of the card
 function flipCard(card) {
@@ -173,5 +213,3 @@ function updateCards() {
 function youWinContent() {
 	winSection.classList.remove("win-section-show");
 }
-
-const card = document.getElementById("myCard");
