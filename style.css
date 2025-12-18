@@ -134,7 +134,7 @@ main {
 	align-items: center;
 
 	height: 10rem;
-	width: 63rem;
+	width: 76rem;
 
 	background-color: #fffcfb;
 	border: 2px solid var(--bright-brown);
@@ -190,12 +190,14 @@ main {
 
 #board {
 	display: grid;
-	grid-template-columns:
-		var(--grid-template-columns) var(--grid-template-columns)
-		var(--grid-template-columns) var(--grid-template-columns) var(--grid-template-columns);
-	grid-template-rows: auto auto;
+	grid-template-columns: repeat(6, 12rem);
+
 	gap: 15px;
 	margin-bottom: 3rem;
+}
+
+#board.locked {
+	pointer-events: none;
 }
 
 .card {
@@ -210,6 +212,10 @@ main {
 	border-radius: var(--border-radius);
 	cursor: pointer;
 	position: relative;
+}
+
+.card.matched {
+	pointer-events: none;
 }
 
 .card-inner {

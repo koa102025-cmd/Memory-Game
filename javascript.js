@@ -21,10 +21,11 @@ const emojies = [
 ];
 
 let cards = [];
+let board;
 
 document.addEventListener("DOMContentLoaded", () => {
-	const board = document.getElementById("board");
-	const totalCards = 10;
+	board = document.getElementById("board");
+	const totalCards = 12;
 
 	const divisors = [5, 4, 3];
 	let minUnevenIndex = totalCards + 1;
@@ -99,17 +100,17 @@ const winTime = document.getElementById("win-time");
 
 //shuffle array
 function shuffle(array) {
-	return array.sort(() => Math.random() - 0.5);
+	return array.sort(() => Math.random() - 0.6);
 }
 
 let cardEmojies = [];
 
 //giving dataset with emoji and making 5 par of an array
 function setupCards(emojies) {
-	//picking 5 random emojies
-	const selected = shuffle([...emojies]).slice(0, 5);
+	//picking 6 random emojies
+	const selected = shuffle([...emojies]).slice(0, 6);
 
-	//making 10 elements
+	//making 12 elements
 	cardEmojies = shuffle([...selected, ...selected]);
 
 	cards.forEach((card, index) => {
@@ -121,6 +122,8 @@ function setupCards(emojies) {
 function flipCard(card) {
 	if (lock) return;
 	if (card === firstCard) return;
+
+	if (card.classList.contains("matched")) return;
 
 	if (!timerStarted) {
 		timerStarted = true;
@@ -143,6 +146,7 @@ function flipCard(card) {
 
 	secondCard = card;
 	lock = true;
+	board.classList.add("locked");
 
 	checkMatch();
 }
@@ -152,10 +156,16 @@ function checkMatch() {
 
 	if (isMatch) {
 		match++;
-		matches.textContent = `${match}/5`;
-		if (match === 5) {
+
+		firstCard.classList.add("matched");
+		secondCard.classList.add("matched");
+
+		matches.textContent = `${match}/6`;
+		if (match === 6) {
 			winSection.classList.add("win-section-show");
 			resetTimer();
+
+			lock = false;
 		}
 
 		// fCard = 0; sCard = 0; lock = 0
@@ -173,7 +183,7 @@ function checkMatch() {
 			).style.backgroundImage = `url(./assets/black-puzzle.png)`;
 
 			resetTurn();
-		}, 800);
+		}, 700);
 	}
 }
 
@@ -202,28 +212,37 @@ function resetTurn() {
 	firstCard = null;
 	secondCard = null;
 	lock = false;
+
+	board.classList.remove("locked");
 }
 
 newGameBtn.addEventListener("click", () => {
 	resetTimer();
 	updateCards();
+	resetTurn();
 });
 playAgainBtn.addEventListener("click", () => {
 	youWinContent();
 	updateCards();
+	resetTurn();
 });
 
 function updateCards() {
 	match = 0;
 	move = 0;
-	matches.textContent = `${match}/5`;
+	matches.textContent = `${match}/6`;
 	moves.textContent = move;
 
 	cards.forEach((card) => {
+		card.classList.remove("matched");
+
 		const emojiDiv = card.querySelector(".card-back");
 		emojiDiv.style.backgroundImage = `url(./assets/black-puzzle.png)`;
 		card.querySelector(".card-inner").classList.remove("flipped");
 	});
+	lock = false;
+	board.classList.remove("locked");
+
 	setupCards(emojies);
 }
 
